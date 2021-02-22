@@ -8,19 +8,32 @@ namespace CustomListClass
 {
     public class CustomList<T>
     {
+        private T[] _numbers;
+        private int count;
+        private int capacity;
 
-        public void Add()
+        public CustomList()
         {
-
-            for (int i = 0; i < numberToAdd; i++)
-            {
-
-            }
+            count = 0;
+            capacity = 4;
+            _numbers = new T[capacity];
         }
 
-        public void Remove()
+        public void Add(T numberToAdd)
         {
+            if (count == capacity)
+            {
+                capacity++;
+                
+            }
+            _numbers[count] = numberToAdd;
+            count++;
+        }
 
+        public void Subtract(T numberToSubtract)
+        {
+            _numbers[count] = numberToSubtract;
+            count--;
         }
     }
 }
