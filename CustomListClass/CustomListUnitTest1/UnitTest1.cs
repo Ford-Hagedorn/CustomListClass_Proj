@@ -15,10 +15,12 @@ namespace CustomListUnitTest1
             int expected = 4;
             int actual;
             //Act
-            actual = firstCheck.Capacity;
+            actual = firstCheck.capacity;
             //Assert
             Assert.AreEqual(expected, actual);
         }
+
+        //Adding Method Tests
         [TestMethod]
 
         public void Add_OneToCount()
@@ -29,8 +31,8 @@ namespace CustomListUnitTest1
             int actual;
 
             //Act
-            actual = addOne.Count;
-            addOne.Count++;
+            actual = addOne.count;
+            addOne.count++;
 
             //Assert
             Assert.AreEqual(expected, actual);
@@ -44,11 +46,9 @@ namespace CustomListUnitTest1
             int expected = 5;
             int actual;
             //Act
-            actual = addExtra.Count;
-            if (addExtra.Count < 5)
-            {
-                addExtra.Count++;
-            }
+            actual = addExtra.count;
+            
+            
             //Assert
             Assert.AreEqual(expected, actual);
             
@@ -63,13 +63,14 @@ namespace CustomListUnitTest1
             int expected = 6;
             int actual;
             //Act
-            actual = oops.Count;
-            if (oops.Count < 5)
+            actual = oops.count;
+            if (oops.count < 5)
             {
-                oops.Count++;
+                oops.count++;
             }
             Assert.AreEqual(expected, actual);
 
         }
+        [TestMethod]
     }
 }

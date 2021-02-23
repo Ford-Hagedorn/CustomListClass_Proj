@@ -8,9 +8,9 @@ namespace CustomListClass
 {
     public class CustomList<T>
     {
-        private T[] _numbers;
-        private int count;
-        private int capacity;
+        public T[] _numbers;
+        public int count;
+        public int capacity;
 
         public CustomList()
         {
@@ -23,7 +23,7 @@ namespace CustomListClass
         {
             if (count == capacity)
             {
-                capacity++;
+                capacity = capacity * 2;
                 
             }
             _numbers[count] = numberToAdd;
