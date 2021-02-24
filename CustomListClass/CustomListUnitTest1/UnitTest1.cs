@@ -31,8 +31,9 @@ namespace CustomListUnitTest1
             int actual;
 
             //Act
-            actual = addOne.count;
-            addOne.count++;
+            addOne.Add(1);
+            actual = addOne.Count;
+             
 
             //Assert
             Assert.AreEqual(expected, actual);
@@ -46,7 +47,8 @@ namespace CustomListUnitTest1
             int expected = 5;
             int actual;
             //Act
-            actual = addExtra.count;
+            addExtra.Add(5);
+            actual = addExtra.Count;
             
             
             //Assert
@@ -63,8 +65,9 @@ namespace CustomListUnitTest1
             int expected = 6;
             int actual;
             //Act
-            actual = oops.count;
-            oops.count++;
+            oops.Add(2);
+            actual = oops.Count;
+            
             //Assert
             Assert.AreNotEqual(expected, actual);
 
@@ -78,7 +81,7 @@ namespace CustomListUnitTest1
             int expected = 0;
             int actual;
             //Act
-            actual = nothingNew.count;
+            actual = nothingNew.Count;
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -91,7 +94,7 @@ namespace CustomListUnitTest1
             int expected = 8;
             int actual;
             //Act
-            actual = timesTwo.count * 2;
+            actual = timesTwo.Count * 2;
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -106,8 +109,9 @@ namespace CustomListUnitTest1
             int expected = -1;
             int actual;
             //Act
-            actual = minusOne.count;
-            minusOne.count--;
+            minusOne.Remove(1);
+            actual = minusOne.Count;
+            
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -120,8 +124,9 @@ namespace CustomListUnitTest1
             int expected = -5;
             int actual;
             //Act
-            actual = minusExtra.count;
-            minusExtra.count--;
+            minusExtra.Remove(5);
+            actual = minusExtra.Count;
+            
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -134,8 +139,9 @@ namespace CustomListUnitTest1
             int expected = -6;
             int actual;
             //Act
-            actual = oopsies.count;
-            oopsies.count--;
+            oopsies.Remove(4);
+            actual = oopsies.Count;
+            
             //Assert
             Assert.AreNotEqual(expected, actual);
         }
@@ -148,7 +154,7 @@ namespace CustomListUnitTest1
             int expected = 0;
             int actual;
             //Act
-            actual = nothingLost.count;
+            actual = nothingLost.Count;
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -161,7 +167,7 @@ namespace CustomListUnitTest1
             double expected = 0.5;
             double actual;
             //Act
-            actual = divideByTwo.count / 2;
+            actual = divideByTwo.Count / 2;
             //Assert
             Assert.AreEqual(expected, actual);
         }

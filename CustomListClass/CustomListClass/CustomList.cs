@@ -9,8 +9,15 @@ namespace CustomListClass
     public class CustomList<T>
     {
         public T[] _numbers;
-        public int count;
-        public int capacity;
+        private int count;
+        public int Count { get => count; }
+
+
+        private int capacity;
+
+        public int Capacity { get => capacity; }
+        public T this[int index] { get => _numbers[index]; set => _numbers[index] = value; }
+
 
         public CustomList()
         {
@@ -24,13 +31,21 @@ namespace CustomListClass
             if (count == capacity)
             {
                 capacity = capacity * 2;
+                T[] biggerNumber = new T[capacity];
+                _numbers[count] = numberToAdd;
+                for (int i = 0; i < count; i++)
+                {
+                    biggerNumber[i] = _numbers[i];
+                }
+                _numbers = biggerNumber;
                 
             }
             _numbers[count] = numberToAdd;
             count++;
+
         }
 
-        public void Subtract(T numberToSubtract)
+        public void Remove(T numberToSubtract)
         {
             _numbers[count] = numberToSubtract;
             count--;
