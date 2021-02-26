@@ -8,7 +8,7 @@ namespace CustomListClass
 {
     public class CustomList<T>
     {
-        public T[] numbers;
+        private T[] items;
         private int count;
         public int Count { get => count; }
 
@@ -16,14 +16,14 @@ namespace CustomListClass
         private int capacity;
 
         public int Capacity { get => capacity; }
-        public T this[int index] { get => numbers[index]; set => numbers[index] = value; }
+        public T this[int index] { get => items[index]; set => items[index] = value; }
 
 
         public CustomList()
         {
             count = 0;
             capacity = 4;
-            numbers = new T[capacity];
+            items = new T[capacity];
         }
 
         public void Add(T numberToAdd)
@@ -32,15 +32,15 @@ namespace CustomListClass
             {
                 capacity = capacity * 2;
                 T[] biggerNumber = new T[capacity];
-                numbers[count] = numberToAdd;
+                items[count] = numberToAdd;
                 for (int i = 0; i < count; i++)
                 {
-                    biggerNumber[i] = numbers[i];
+                    biggerNumber[i] = items[i];
                 }
-                numbers = biggerNumber;
+                items = biggerNumber;
                 
             }
-            numbers[count] = numberToAdd;
+            items[count] = numberToAdd;
             count++;
 
         }
@@ -68,22 +68,61 @@ namespace CustomListClass
             //    i++;
             //}
             //count--;
-            T[] numberSpread = new T[count];
-            T[] newNumberSpread = new T[count - 1];
-            bool removeItem = true;
-            int i = 0;
-            int j = 0;
-            while (i < numberSpread.Length)
+            //T[] numberSpread = new T[count];
+            //T[] newNumberSpread = new T[count - 1];
+            //bool removeItem = true;
+            //int i = 0;
+            //int j = 0;
+            //while (i < numberSpread.Length)
+            //{
+            //    int numberRemove;
+            //    numberRemove = count - 1;
+
+            //    if (i != numberSpread.Length)
+            //    {
+            //        newNumberSpread[j] = numberSpread[i];
+            //        j++;
+            //    }
+            //    i++;
+            //}
+            //be able to remove item from array
+            //skip or remove
+            //put remaining in new array
+            //set array member variable to temp array w/o item that was removed
+
+            T[] smallerItems = new T[capacity];
+            bool isRemoved = false;
+            for (int i = 0, j = 0; i < count; i++, j++)
             {
-                int numberRemove;
-
-
-                if (i != numberRemove)
+                if (items[i].Equals(numberToSubtract) && isRemoved == false)
                 {
-                    
+                    j--;
+                    isRemoved = true;
                 }
-            }
+                else
+                {
+                    smallerItems[j] = items[i];
+                }
+                items = smallerItems;
+                if (isRemoved)
+                {
+                    count--;
 
+                }
+                
+            }
+        }
+        public static CustomList<T> Zip (CustomList<T> firstList, CustomList<T> secondList)
+        {
+            CustomList<T> combinedList = new CustomList<T>();
+            if (firstList.count > secondList.count)
+            {
+                for (int i = 0; i < firstList.count; i++)
+                {
+                    combinedList.Add(firstList[i]);
+                }
+
+            }
         }
     }
 }
